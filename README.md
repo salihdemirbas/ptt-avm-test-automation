@@ -45,7 +45,7 @@ PTT_TEST/
 
 1. **Projeyi klonlayın:**
    ```bash
-   git clone [repository-url]
+   git clone [https://github.com/salihdemirbas/ptt-avm-test-automation]
    cd PTT_TEST
    ```
 
