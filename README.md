@@ -9,6 +9,7 @@ Bu proje, PTT AVM web sitesinin end-to-end (E2E) testlerini ve PetStore API test
 - **Axios**: HTTP client (API testleri için)
 - **Page Object Model (POM)**: Test tasarım pattern'i
 - **Node.js**: Runtime environment
+- **Mochawesome**: Test raporlama sistemi
 
 ## 📁 Proje Yapısı
 
@@ -20,6 +21,12 @@ PTT_TEST/
 │   │   ├── favorikontrol.cy.js # Favori işlemleri testi
 │   │   └── petstore-api-test-with-cypress-axios.cy.js # PetStore API testleri
 │   ├── fixtures/               # Test verileri
+│   ├── reports/                # Test raporları
+│   │   └── mochawesome/        # Mochawesome raporları
+│   │       ├── html/           # HTML raporları
+│   │       │   ├── assets/     # Rapor assets'leri
+│   │       │   └── report.html # Ana rapor dosyası
+│   │       └── *.json          # JSON rapor dosyaları
 │   ├── support/
 │   │   ├── pageObjects/        # Page Object Model sınıfları
 │   │   │   ├── HomePage.js
@@ -31,6 +38,7 @@ PTT_TEST/
 │   │   └── e2e.js             # E2E test konfigürasyonu
 │   └── cypress.config.js       # Cypress konfigürasyonu
 ├── package.json                # Proje bağımlılıkları
+├── mochawesome-report.json     # Birleştirilmiş rapor dosyası
 └── README.md                   # Bu dosya
 ```
 
@@ -40,13 +48,12 @@ PTT_TEST/
 - Node.js (v14 veya üzeri)
 - npm veya yarn
 
-
 ### Kurulum Adımları
 
 1. **Projeyi klonlayın:**
    ```bash
    git clone [https://github.com/salihdemirbas/ptt-avm-test-automation]
-   cd PTT_TEST
+   cd ptt-avm-test-automation
    ```
 
 2. **Bağımlılıkları yükleyin:**
@@ -71,15 +78,50 @@ PTT_TEST/
 npm run cypress:open
 ```
 
-#### Komut Satırından Test Çalıştırma
+#### Komut Satırından Test Çalıştırma (Headless)
 ```bash
 npm run cypress:run
 ```
+
+#### Tarayıcıda Test Çalıştırma (Headed)
+```bash
+npm run test:run
+```
+
+#### Rapor Oluşturma
+```bash
+npm run report:generate
+```
+
+#### Tüm Testleri Çalıştırıp Rapor Oluşturma
+```bash
+npm run test:all
+```
+
+Bu komut sırasıyla:
+1. Testleri Chrome tarayıcısında çalıştırır
+2. Mochawesome raporunu oluşturur
+3. HTML raporunu otomatik olarak açar
 
 #### Sadece API Testlerini Çalıştırma
 ```bash
 npx cypress run --spec "cypress/e2e/petstore-api-test-with-cypress-axios.cy.js"
 ```
+
+## 📊 Test Raporlama
+
+Bu proje **Mochawesome** raporlama sistemi kullanmaktadır. Testler çalıştırıldıktan sonra:
+
+- **JSON Raporları**: `cypress/reports/mochawesome/` klasöründe saklanır
+- **HTML Raporu**: `cypress/reports/mochawesome/html/report.html` dosyasında oluşturulur
+- **Birleştirilmiş Rapor**: `mochawesome-report.json` dosyasında tüm test sonuçları birleştirilir
+
+### Rapor Özellikleri
+- Test sonuçlarının detaylı görünümü
+- Başarılı/başarısız test sayıları
+- Test süreleri
+- Hata detayları ve ekran görüntüleri
+- Responsive tasarım
 
 ## 📋 Test Senaryoları
 
@@ -143,8 +185,6 @@ npx cypress run --spec "cypress/e2e/petstore-api-test-with-cypress-axios.cy.js"
    - Status code: 200
    - Response'da gönderilen veriler doğrulanır
    - Pet başarıyla eklenir
-
-
 
 ## ⚙️ Konfigürasyon
 
