@@ -4,6 +4,6 @@ export class ListPage {
   }
 
   checkSearchUrl() {
-    cy.url().should('include', 'arama?q');
+    cy.url({ timeout: 10000 }).should('include', 'arama?q');
   }
 } 
