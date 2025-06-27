@@ -88,20 +88,30 @@ npm run cypress:run
 npm run test:run
 ```
 
-#### Rapor Oluşturma
-```bash
-npm run report:generate
-```
-
-#### Tüm Testleri Çalıştırıp Rapor Oluşturma
+#### Sadece Testleri Çalıştırma (Rapor Olmadan)
 ```bash
 npm run test:all
+```
+
+#### Testleri Çalıştırıp Rapor Oluşturma ve Açma ⭐ **ÖNERİLEN**
+```bash
+npm run test:with-report
 ```
 
 Bu komut sırasıyla:
 1. Testleri Chrome tarayıcısında çalıştırır
 2. Mochawesome raporunu oluşturur
-3. HTML raporunu otomatik olarak açar
+3. HTML raporunu otomatik olarak tarayıcıda açar
+
+#### Sadece Rapor Oluşturma
+```bash
+npm run report:generate
+```
+
+#### Sadece Raporu Açma
+```bash
+npm run report:open
+```
 
 #### Sadece API Testlerini Çalıştırma
 ```bash
@@ -122,6 +132,11 @@ Bu proje **Mochawesome** raporlama sistemi kullanmaktadır. Testler çalıştır
 - Test süreleri
 - Hata detayları ve ekran görüntüleri
 - Responsive tasarım
+
+### Önemli Notlar
+- **Test başarısız olsa bile rapor oluşturulur ve açılır**
+- Raporlar `cypress/reports/mochawesome/html/` klasöründe saklanır
+- Her test çalıştırmasında yeni rapor dosyaları oluşturulur
 
 ## 📋 Test Senaryoları
 
@@ -190,19 +205,43 @@ Bu proje **Mochawesome** raporlama sistemi kullanmaktadır. Testler çalıştır
 
 ### Cypress Konfigürasyonu (`cypress.config.js`)
 - Test URL'leri
-- Timeout ayarları
+- Timeout ayarları (15 saniye)
 - Browser ayarları
+- Retry ayarları (2 kez)
+- Screenshot ayarları
 
 ### API Test Konfigürasyonu
 - PetStore API Base URL: `https://petstore.swagger.io/v2`
 - Content-Type: `application/json`
 - Test verileri için rastgele ID'ler
 
-### Test Verileri
-- Kullanıcı bilgileri
-- Test ürünleri
-- Pet test verileri
-- Beklenen sonuçlar
+## 🔧 Özellikler
+
+### Element Bulunamama Sorunu Çözümü
+- Tüm element seçicilerinde timeout ayarları (10-30 saniye)
+- Sayfa yüklenme bekleme stratejileri
+- Retry mekanizması
+- Güvenilir element bulma komutları
+
+### Rapor Sorunu Çözümü
+- Test başarısız olsa bile rapor oluşturma
+- Otomatik rapor açma
+- Detaylı hata raporlama
+- Screenshot alma
+
+## 🚀 Hızlı Başlangıç
+
+1. **Kurulum:**
+   ```bash
+   npm install
+   ```
+
+2. **Testleri çalıştır ve rapor al:**
+   ```bash
+   npm run test:with-report
+   ```
+
+3. **Rapor otomatik olarak tarayıcıda açılacaktır!**
 
 
 

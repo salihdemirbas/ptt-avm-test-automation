@@ -42,8 +42,17 @@ export class ProductDetailPage {
   }
 
   checkFavoriteButtonVisible() {
-    cy.get('button.user-login span .evoicon-fav-empty').should('be.visible');
-    cy.get('button.user-login span + span').contains('Favorilere Ekle').should('be.visible');
+    // Sayfanın tamamen yüklenmesini bekle
+    cy.wait(2000);
+    
+    // Favori butonunun görünür olmasını bekle
+    cy.get('button.user-login', { timeout: 15000 }).should('be.visible');
+    
+    // Favori ikonunun yüklenmesini bekle
+    cy.get('button.user-login span .evoicon-fav-empty', { timeout: 15000 }).should('be.visible');
+    
+    // "Favorilere Ekle" metninin görünür olmasını bekle
+    cy.get('button.user-login span + span', { timeout: 15000 }).contains('Favorilere Ekle').should('be.visible');
   }
 
   clickFavoriteButton() {

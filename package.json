@@ -8,7 +8,9 @@
     "cypress:run": "cypress run",
     "test:run": "cypress run --headed --browser chrome",
     "report:generate": "npx mochawesome-merge cypress/reports/mochawesome/*.json --output mochawesome-report.json && npx marge mochawesome-report.json -f report -o cypress/reports/mochawesome/html",
-    "test:all": "npm run test:run && npm run report:generate && start cypress\\reports\\mochawesome\\html\\report.html"
+    "report:open": "start cypress\\reports\\mochawesome\\html\\report.html",
+    "test:all": "cypress run --headed --browser chrome",
+    "test:with-report": "npm run test:all && npm run report:generate && npm run report:open"
   },
   "keywords": [],
   "author": "",
