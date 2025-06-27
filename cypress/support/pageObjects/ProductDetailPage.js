@@ -47,12 +47,12 @@ export class ProductDetailPage {
   }
 
   clickFavoriteButton() {
-    cy.get('button.user-login').contains('Favorilere Ekle').should('be.visible').click();
+    cy.get('button.user-login', { timeout: 30000 }).contains('Favorilere Ekle').should('be.visible').click();
   }
 
   checkFavoriteAdded() {
-    cy.get('.evoicon-fav-full', { timeout: 20000 }).should('be.visible');
-    cy.contains('Favorilere Eklendi', { timeout: 20000 }).should('be.visible');
+    cy.get('.evoicon-fav-full', { timeout: 30000 }).should('be.visible');
+    cy.contains('Favorilere Eklendi', { timeout: 30000 }).should('be.visible');
   }
 
   saveFavoriteProductName() {

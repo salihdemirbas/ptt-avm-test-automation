@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-27T11:51:25.955Z",
+    "end": "2025-06-27T11:51:28.324Z",
+    "duration": 2369,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e855448b-47db-4fc8-a48d-3e80aca147d4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\petstore-api-test-with-cypress-axios.cy.js",
+      "file": "cypress\\e2e\\petstore-api-test-with-cypress-axios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6824152f-4c96-440e-b077-d5bba3ba01ff",
+          "title": "PetStore Simple API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get pets by status=available successfully",
+              "fullTitle": "PetStore Simple API Test should get pets by status=available successfully",
+              "timedOut": null,
+              "duration": 1732,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n  const response = await axios.get(`${baseUrl}/pet/findByStatus?status=available`);\n  // Status code kontrolü\n  expect(response.status).to.equal(200);\n  // Response data kontrolü\n  expect(response.data).to.be.an('array');\n  expect(response.data.length).to.be.greaterThan(0);\n  // İlk pet'in yapısını kontrol et\n  const firstPet = response.data[0];\n  expect(firstPet).to.have.property('id');\n  expect(firstPet).to.have.property('name');\n  expect(firstPet).to.have.property('tags');\n  expect(firstPet).to.have.property('status');\n  expect(firstPet.status).to.equal('available');\n  expect(firstPet.category.id).to.equal(0);\n  cy.log('Pet status=available API testi başarılı');\n  cy.log(`Bulunan pet sayısı: ${response.data.length}`);\n} catch (error) {\n  cy.log('Pet status=available API testi başarısız:', error.message);\n  throw error;\n}",
+              "err": {},
+              "uuid": "86f35ea5-2f46-4f4f-9b8b-b945db81274e",
+              "parentUUID": "6824152f-4c96-440e-b077-d5bba3ba01ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get pets by status=pending successfully",
+              "fullTitle": "PetStore Simple API Test should get pets by status=pending successfully",
+              "timedOut": null,
+              "duration": 156,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n  const response = await axios.get(`${baseUrl}/pet/findByStatus?status=pending`);\n  // Status code kontrolü\n  expect(response.status).to.equal(200);\n  // Response data kontrolü\n  expect(response.data).to.be.an('array');\n  // İlk pet'in yapısını kontrol et (eğer varsa)\n  if (response.data.length > 0) {\n    const firstPet = response.data[0];\n    expect(firstPet).to.have.property('id');\n    expect(firstPet).to.have.property('name');\n    expect(firstPet).to.have.property('status');\n    expect(firstPet.status).to.equal('pending');\n  }\n  cy.log('Pet status=pending API testi başarılı');\n  cy.log(`Bulunan pet sayısı: ${response.data.length}`);\n} catch (error) {\n  cy.log('Pet status=pending API testi başarısız:', error.message);\n  throw error;\n}",
+              "err": {},
+              "uuid": "2d87e556-c857-472a-98ce-68afefa4f55e",
+              "parentUUID": "6824152f-4c96-440e-b077-d5bba3ba01ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get pets by status=sold successfully",
+              "fullTitle": "PetStore Simple API Test should get pets by status=sold successfully",
+              "timedOut": null,
+              "duration": 155,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n  const response = await axios.get(`${baseUrl}/pet/findByStatus?status=sold`);\n  // Status code kontrolü\n  expect(response.status).to.equal(200);\n  // Response data kontrolü\n  expect(response.data).to.be.an('array');\n  // İlk pet'in yapısını kontrol et \n  if (response.data.length > 0) {\n    const firstPet = response.data[0];\n    expect(firstPet).to.have.property('id');\n    expect(firstPet).to.have.property('name');\n    expect(firstPet).to.have.property('status');\n    expect(firstPet.status).to.equal('sold');\n  }\n  cy.log('Pet status=sold API testi başarılı');\n  cy.log(`Bulunan pet sayısı: ${response.data.length}`);\n} catch (error) {\n  cy.log('Pet status=sold API testi başarısız:', error.message);\n  throw error;\n}",
+              "err": {},
+              "uuid": "4cde1648-65f0-4a38-8dbf-e455e58b6b09",
+              "parentUUID": "6824152f-4c96-440e-b077-d5bba3ba01ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should add a new pet successfully via POST",
+              "fullTitle": "PetStore Simple API Test should add a new pet successfully via POST",
+              "timedOut": null,
+              "duration": 288,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newPet = {\n  id: 16,\n  category: {\n    id: 1,\n    name: 'Dogs'\n  },\n  name: 'Gofret',\n  photoUrls: ['https://www.pttavm.com/'],\n  tags: [{\n    id: 1,\n    name: 'test'\n  }],\n  status: 'available'\n};\ntry {\n  const response = await axios.post(`${baseUrl}/pet`, newPet, {\n    headers: {\n      'Content-Type': 'application/json'\n    }\n  });\n  // Status code kontrolü\n  expect(response.status).to.equal(200);\n  // Response data kontrolü\n  expect(response.data).to.be.an('object');\n  expect(response.data.id).to.equal(newPet.id);\n  expect(response.data.name).to.equal(newPet.name);\n  expect(response.data.status).to.equal(newPet.status);\n  expect(response.data.category.name).to.equal(newPet.category.name);\n  expect(response.data.photoUrls).to.deep.equal(newPet.photoUrls);\n  expect(response.data.tags).to.deep.equal(newPet.tags);\n  cy.log('Pet POST ile başarıyla eklendi');\n  cy.log(`Eklenen pet ID: ${response.data.id}`);\n} catch (error) {\n  cy.log('Pet POST testi başarısız:', error.message);\n  throw error;\n}",
+              "err": {},
+              "uuid": "505e39cb-835f-4a68-bbd5-c90a50b61b85",
+              "parentUUID": "6824152f-4c96-440e-b077-d5bba3ba01ff",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "86f35ea5-2f46-4f4f-9b8b-b945db81274e",
+            "2d87e556-c857-472a-98ce-68afefa4f55e",
+            "4cde1648-65f0-4a38-8dbf-e455e58b6b09",
+            "505e39cb-835f-4a68-bbd5-c90a50b61b85"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2331,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
