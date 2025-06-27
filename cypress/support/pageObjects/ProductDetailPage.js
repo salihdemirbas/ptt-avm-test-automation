@@ -6,7 +6,6 @@ export class ProductDetailPage {
   saveProductName() {
     cy.get('h1.text-lg.font-medium.break-word').invoke('text').then(text => {
       this.productName = text.trim();
-      // İsterseniz cy.wrap ile alias olarak da kaydedebilirsiniz:
       cy.wrap(this.productName).as('selectedProductName');
     });
   }

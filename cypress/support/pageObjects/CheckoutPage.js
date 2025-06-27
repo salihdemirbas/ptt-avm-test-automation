@@ -10,7 +10,7 @@ export class CheckoutPage {
   }
 
   checkProductPrice(expectedPrice) {
-    // cy.get('span.font-semibold.text-sm').first().invoke('text').then(cartPrice => {
+    
       cy.get('span.font-semibold.text-sm').first().invoke('text').then(cartPrice => {
       cy.log('Sepetteki ilk fiyat:', cartPrice);
       expect(cartPrice.trim()).to.eq(expectedPrice);
