@@ -27,7 +27,7 @@ describe('PetStore Simple API Test', () => {
       
       
       
-      cy.log('Pet status=available API testi basrili');
+      cy.log('Pet status=available API testi basarili');
       cy.log(`Bulunan pet sayısı: ${response.data.length}`);
       
     } catch (error) {
