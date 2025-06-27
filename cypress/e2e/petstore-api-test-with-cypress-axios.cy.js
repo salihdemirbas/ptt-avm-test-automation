@@ -27,11 +27,11 @@ describe('PetStore Simple API Test', () => {
       
       
       
-      cy.log('Pet status=available API testi başarılı');
+      cy.log('Pet status=available API testi basrili');
       cy.log(`Bulunan pet sayısı: ${response.data.length}`);
       
     } catch (error) {
-      cy.log('Pet status=available API testi başarısız:', error.message);
+      cy.log('Pet status=available API testi basarisiz', error.message);
       throw error;
     }
   });
@@ -46,7 +46,7 @@ describe('PetStore Simple API Test', () => {
       // Response data kontrolü
       expect(response.data).to.be.an('array');
       
-      // İlk pet'in yapısını kontrol et (eğer varsa)
+      // İlk pet'in yapısını kontrol et 
       if (response.data.length > 0) {
         const firstPet = response.data[0];
         expect(firstPet).to.have.property('id');
@@ -55,11 +55,11 @@ describe('PetStore Simple API Test', () => {
         expect(firstPet.status).to.equal('pending');
       }
       
-      cy.log('Pet status=pending API testi başarılı');
-      cy.log(`Bulunan pet sayısı: ${response.data.length}`);
+      cy.log('Pet status=pending API testi basarili');
+      cy.log(`Bulunan pet sayisi: ${response.data.length}`);
       
     } catch (error) {
-      cy.log('Pet status=pending API testi başarısız:', error.message);
+      cy.log('Pet status=pending API testi basarisiz:', error.message);
       throw error;
     }
   });
@@ -83,11 +83,11 @@ describe('PetStore Simple API Test', () => {
         expect(firstPet.status).to.equal('sold');
       }
       
-      cy.log('Pet status=sold API testi başarılı');
-      cy.log(`Bulunan pet sayısı: ${response.data.length}`);
+      cy.log('Pet status=sold API testi basarili');
+      cy.log(`Bulunan pet sayisi: ${response.data.length}`);
       
     } catch (error) {
-      cy.log('Pet status=sold API testi başarısız:', error.message);
+      cy.log('Pet status=sold API testi basarisiz:', error.message);
       throw error;
     }
   });
@@ -117,10 +117,10 @@ describe('PetStore Simple API Test', () => {
       expect(response.data.category.name).to.equal(newPet.category.name);
       expect(response.data.photoUrls).to.deep.equal(newPet.photoUrls);
       expect(response.data.tags).to.deep.equal(newPet.tags);
-      cy.log('Pet POST ile başarıyla eklendi');
+      cy.log('Pet POST ile basarili eklendi');
       cy.log(`Eklenen pet ID: ${response.data.id}`);
     } catch (error) {
-      cy.log('Pet POST testi başarısız:', error.message);
+      cy.log('Pet POST testi basarisiz:', error.message);
       throw error;
     }
   });
