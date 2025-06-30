@@ -215,19 +215,7 @@ Bu proje **Mochawesome** raporlama sistemi kullanmaktadır. Testler çalıştır
 - Content-Type: `application/json`
 - Test verileri için rastgele ID'ler
 
-## 🔧 Özellikler
 
-### Element Bulunamama Sorunu Çözümü
-- Tüm element seçicilerinde timeout ayarları (10-30 saniye)
-- Sayfa yüklenme bekleme stratejileri
-- Retry mekanizması
-- Güvenilir element bulma komutları
-
-### Rapor Sorunu Çözümü
-- Test başarısız olsa bile rapor oluşturma
-- Otomatik rapor açma
-- Detaylı hata raporlama
-- Screenshot alma
 
 ## 🚀 Hızlı Başlangıç
 
